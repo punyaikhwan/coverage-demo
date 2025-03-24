@@ -1,0 +1,12 @@
+mode: set
+coverage-demo/pkg/stringutils/string_utils.go:4.33,6.2 1 1
+coverage-demo/pkg/stringutils/string_utils.go:9.31,11.65 2 1
+coverage-demo/pkg/stringutils/string_utils.go:11.65,13.3 1 1
+coverage-demo/pkg/stringutils/string_utils.go:14.2,14.22 1 1
+coverage-demo/pkg/stringutils/string_utils.go:18.34,20.2 1 1
+coverage-demo/pkg/mathutils/math_utils.go:11.30,13.2 1 1
+coverage-demo/pkg/mathutils/math_utils.go:16.35,18.2 1 1
+coverage-demo/pkg/mathutils/math_utils.go:20.54,22.2 1 1
+coverage-demo/pkg/mathutils/math_utils.go:26.42,27.25 1 1
+coverage-demo/pkg/mathutils/math_utils.go:27.25,29.3 1 1
+coverage-demo/pkg/mathutils/math_utils.go:30.2,30.44 1 1
