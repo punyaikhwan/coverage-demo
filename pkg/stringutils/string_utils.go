@@ -43,3 +43,13 @@ func IsAnagramHelper(a, b string) bool {
 	}
 	return true
 }
+
+// IsNumber checks if a string is a number.
+func IsNumber(s string) bool {
+	for _, r := range s {
+		if r < '0' || r > '9' {
+			return false
+		}
+	}
+	return true
+}
