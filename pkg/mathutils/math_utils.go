@@ -2,25 +2,30 @@ package mathutils
 
 import "fmt"
 
+type TwoNumber struct {
+	FirstNumber  int
+	SecondNumber int
+}
+
 // Add adds two integers and returns the result
-func Add(a, b int) int {
-	return a + b
+func (a TwoNumber) Add() int {
+	return a.FirstNumber + a.SecondNumber
 }
 
 // Multiply multiplies two integers and returns the result
-func Multiply(a, b int) int {
-	return a * b
+func (a TwoNumber) Multiply() int {
+	return a.FirstNumber * a.SecondNumber
 }
 
-func CheckIsAdditionTrue(a, b int, sum int) bool {
-	return Add(a, b) == sum
+func (a TwoNumber) CheckIsAdditionTrue(sum int) bool {
+	return a.Add() == sum
 }
 
 // Divide divides two integers and returns the result
 // Returns an error if the divisor is zero
-func Divide(a, b int) (int, error) {
-	if b == 0 {
+func (a TwoNumber) Divide() (int, error) {
+	if a.SecondNumber == 0 {
 		return 0, fmt.Errorf("cannot divide by zero")
 	}
-	return a / b, nil
+	return a.FirstNumber / a.SecondNumber, nil
 }
