@@ -18,3 +18,38 @@ func Reverse(s string) string {
 func IsPalindrome(s string) bool {
 	return s == Reverse(s)
 }
+
+// IsAnagram checks if two strings are anagrams.
+// Two strings are anagrams if they contain the same characters in any order.
+func IsAnagram(a, b string) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	return IsAnagramHelper(a, b)
+}
+
+// IsAnagramHelper checks if two strings are anagrams.
+func IsAnagramHelper(a, b string) bool {
+	counts := make(map[rune]int)
+	for _, r := range a {
+		counts[r]++
+	}
+	for _, r := range b {
+		counts[r]--
+		if counts[r] < 0 {
+			return false
+		}
+	}
+	return true
+}
+
+// IsNumber checks if a string is a number.
+func IsNumber(s string) bool {
+	for _, r := range s {
+		if r < '0' || r > '9' {
+			return false
+		}
+	}
+	return true
+}
