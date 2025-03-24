@@ -207,3 +207,66 @@ func TestIsAnagram(t *testing.T) {
 		})
 	}
 }
+
+func TestIsNumber(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    string
+		expected bool
+	}{
+		{
+			name:     "empty string",
+			input:    "",
+			expected: true,
+		},
+		{
+			name:     "single digit",
+			input:    "5",
+			expected: true,
+		},
+		{
+			name:     "multiple digits",
+			input:    "12345",
+			expected: true,
+		},
+		{
+			name:     "with letters",
+			input:    "123a45",
+			expected: false,
+		},
+		{
+			name:     "with special characters",
+			input:    "123.45",
+			expected: false,
+		},
+		{
+			name:     "with spaces",
+			input:    "123 45",
+			expected: false,
+		},
+		{
+			name:     "with negative sign",
+			input:    "-123",
+			expected: false,
+		},
+		{
+			name:     "letters only",
+			input:    "abcde",
+			expected: false,
+		},
+		{
+			name:     "unicode digits",
+			input:    "１２３４５",
+			expected: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := IsNumber(tt.input)
+			if result != tt.expected {
+				t.Errorf("IsNumber(%q) = %v, expected %v", tt.input, result, tt.expected)
+			}
+		})
+	}
+}
