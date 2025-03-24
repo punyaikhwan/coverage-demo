@@ -25,13 +25,15 @@ jobs:
           go mod download
           go install github.com/axw/gocov/gocov@latest
           go install github.com/AlekSi/gocov-xml@latest
+          echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
       - name: Run tests with coverage
         run: |
           mkdir -p coverage
           go test ./... -coverprofile=coverage/coverage.out
           go tool cover -html=coverage/coverage.out -o coverage/coverage.html
-          $GOPATH/bin/gocov convert coverage/coverage.out | $GOPATH/bin/gocov-xml > coverage/coverage.xml
+          gocov convert coverage/coverage.out | gocov-xml > coverage/coverage.xml
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
