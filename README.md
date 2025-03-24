@@ -46,3 +46,16 @@ This will:
 The generated XML file at `coverage/coverage.xml` can be used with SonarCloud. The `sonar-project.properties` file is already configured to use this file.
 
 When running SonarCloud analysis, it will automatically pick up the coverage report.
+
+## GitHub Actions Integration
+
+This project includes a GitHub workflow to automatically run tests and generate coverage reports:
+
+- The workflow runs on pushes to the main/master branch and on pull requests
+- It generates code coverage reports and submits them to SonarCloud
+- You need to add a `SONAR_TOKEN` secret to your GitHub repository settings
+
+To set this up:
+1. Log in to [SonarCloud](https://sonarcloud.io/)
+2. Generate a token for your project
+3. Add the token as a secret named `SONAR_TOKEN` in your GitHub repository settings

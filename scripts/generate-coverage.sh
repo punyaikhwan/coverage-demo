@@ -14,8 +14,12 @@ go tool cover -html=coverage/coverage.out -o coverage/coverage.html
 go install github.com/axw/gocov/gocov@latest
 go install github.com/AlekSi/gocov-xml@latest
 
+# Get GOPATH and use full path to binaries
+GOPATH=$(go env GOPATH)
+echo "Using GOPATH: $GOPATH"
+
 # Convert Go coverage to Cobertura XML format (SonarCloud compatible)
-gocov convert coverage/coverage.out | gocov-xml > coverage/coverage.xml
+"$GOPATH/bin/gocov" convert coverage/coverage.out | "$GOPATH/bin/gocov-xml" > coverage/coverage.xml
 
 echo "Coverage report generated at coverage/coverage.xml"
 echo "This file can be used with SonarCloud for coverage reporting"
