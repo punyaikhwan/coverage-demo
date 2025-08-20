@@ -58,3 +58,26 @@ func TestCheckIsAdditionTrueWithFalseInput(t *testing.T) {
 	result := n.CheckIsAdditionTrue(6)
 	assert.False(t, result)
 }
+
+// TestIsNumberPalindrome tests the IsNumberPalindrome function
+func TestIsNumberPalindrome(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    int
+		expected bool
+	}{
+		{"Palindrome with single digit", 5, true},
+		{"Palindrome with multiple digits", 121, true},
+		{"Palindrome with even number of digits", 1221, true},
+		{"Non-palindrome", 123, false},
+		{"Negative number", -121, false},
+		{"Zero", 0, true},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			result := IsNumberPalindrome(tc.input)
+			assert.Equal(t, tc.expected, result, "Input: %d", tc.input)
+		})
+	}
+}

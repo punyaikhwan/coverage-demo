@@ -1,6 +1,9 @@
 package mathutils
 
-import "fmt"
+import (
+	"coverage-demo/srv"
+	"fmt"
+)
 
 type TwoNumber struct {
 	FirstNumber  int
@@ -28,4 +31,9 @@ func (a TwoNumber) Divide() (int, error) {
 		return 0, fmt.Errorf("cannot divide by zero")
 	}
 	return a.FirstNumber / a.SecondNumber, nil
+}
+
+// IsNumberPalindrome checks if a number is a palindrome.
+func IsNumberPalindrome(n int) bool {
+	return srv.IsNumberPalindrome(n)
 }
